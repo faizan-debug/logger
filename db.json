@@ -1,0 +1,47 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Created Home Page",
+      "attention": false,
+      "date": "12-11-2023",
+      "developer": "Faizan Ali"
+    },
+    {
+      "id": 2,
+      "message": "Created Product Page",
+      "attention": false,
+      "date": "12-12-2023",
+      "developer": "Faizan Ali"
+    },
+    {
+      "id": 3,
+      "message": "Created Cart Page",
+      "attention": false,
+      "date": "30-12-2023",
+      "developer": "Faizan Ali"
+    }
+  ],
+  "developer": [
+    {
+      "id": 1,
+      "firstName": "Faizan",
+      "lastName": "Ali"
+    },
+    {
+      "id": 2,
+      "firstName": "Adil",
+      "lastName": "Altaf"
+    },
+    {
+      "id": 3,
+      "firstName": "Imad",
+      "lastName": "Wasim"
+    },
+    {
+      "id": 4,
+      "firstName": "Kamran",
+      "lastName": "Ali"
+    }
+  ]
+}
