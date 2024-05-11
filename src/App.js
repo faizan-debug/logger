@@ -7,7 +7,10 @@ import AddLogModal from './components/logs/AddLogModal';
 import EditLogModal from './components/logs/EditLogModal';
 import AddDeveloperModal from './components/developers/AddDeveloperModal';
 import DeveloperListModal from './components/developers/DeveloperListModal';
-
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
+//CSS adn Materialze CSS
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -20,6 +23,7 @@ const App = () => {
   })
 
   return (
+    <Provider store={store}>
     <Fragment>
       <SearchBar/>
       <div className="container">
@@ -31,6 +35,7 @@ const App = () => {
         <Logs />
       </div>
     </Fragment>
+    </Provider>
   )
 }
 
