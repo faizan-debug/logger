@@ -13,7 +13,7 @@ const AddBtn = () => {
             &nbsp; &nbsp; &nbsp; &nbsp;
 
                 <a href="#developer-modal" className='btn-floating red modal-trigger'>
-                    <i className='material-icons'>personadd</i>
+                    <i className='material-icons'>person_add</i>
                 </a>
       
     </div>
