@@ -1,15 +1,15 @@
 import { applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { composeWithDevTools } from '@redux-devtools/extension/lib/types/logOnly';
+import { composeWithDevTools } from '@redux-devtools/extension';
 import { thunk } from 'redux-thunk';
-import rootReducer from './reducers'
+import logReducer from './reducers/logReducer'
 
 const initialState = {};
 
 const middleware = [thunk];
 
-const store = createStore(
-    rootReducer,
+const store = configureStore(
+    logReducer,
     initialState,
     composeWithDevTools(applyMiddleware(...middleware))
 )
