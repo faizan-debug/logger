@@ -10,7 +10,7 @@ import DeveloperListModal from './components/developers/DeveloperListModal';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
-//CSS adn Materialze CSS
+//CSS and Materialze CSS
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
