@@ -1,20 +1,6 @@
 {
   "logs": [
     {
-      "id": "4f58",
-      "message": "Teach Class on Sunday Jun 6",
-      "attention": true,
-      "developer": "Adil Altaf",
-      "date": "2024-05-12T11:31:41.160Z"
-    },
-    {
-      "id": "488a",
-      "message": "Teach Class on Jun 12",
-      "attention": true,
-      "developer": "Faizan Ali",
-      "date": "2024-05-12T11:32:08.404Z"
-    },
-    {
       "id": "d0ce",
       "message": "Work on project JS",
       "attention": "",
