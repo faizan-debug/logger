@@ -10,6 +10,7 @@ const LogItem = ({ log, deleteLog, setCurrent }) => {
     const onDelete = () => {
         deleteLog(log.id);
         M.toast({ html: 'Log Deleted'})
+        window.location.reload();
     }
 
   return (

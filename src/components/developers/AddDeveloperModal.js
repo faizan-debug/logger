@@ -1,16 +1,27 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
+
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { addDeveloper } from '../../actions/developerActions';
 
-const AddDeveloperModal = () => {
+const AddDeveloperModal = ({addDeveloper}) => {
 
+    
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
 
     const onsubmit = () => {
+       
         if ( firstName === '' || lastName === '') {
             M.toast({ html: 'Please provide values for firstName and lastName'})
         } else {
-            console.log(firstName, lastName);
+            const newDeveloper = {
+                firstName: firstName,
+                lastName: lastName
+            }
+            addDeveloper(newDeveloper);
+            M.toast({ html: 'Developer Added'})
             setFirstName('');
             setLastName('');
         }
@@ -50,4 +61,9 @@ const AddDeveloperModal = () => {
   )
 }
 
-export default AddDeveloperModal
+AddDeveloperModal.propTypes = {
+    addDeveloper: PropTypes.func.isRequired,
+}
+
+
+export default connect(null, {addDeveloper})(AddDeveloperModal);

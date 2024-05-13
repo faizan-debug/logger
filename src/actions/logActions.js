@@ -1,6 +1,6 @@
 import { GET_LOGS, ADD_LOG, DELETE_LOG, 
-    SET_CURRENT, CLEAR_CURRENT, UPDATE_LOG, 
-    SET_LOADING, LOGS_ERROR } from './types'
+    SET_CURRENT, CLEAR_CURRENT, UPDATE_LOG,
+    SEARCH_LOGS, SET_LOADING, LOGS_ERROR } from './types'
 
 
 //Action to get log
@@ -74,6 +74,30 @@ export const deleteLog = (id) => async dispatch => {
         })
     }
 }
+
+//Action to search logs
+export const searchLogs = (text) => async dispatch => {
+    try {
+         //Set Loading to true
+         setLoading();
+         //Fetch from API
+         const res = await fetch(`/logs?q=${text}`)
+         const data = await res.json();
+         console.log(data);
+         //Dispatch
+         dispatch({
+            type: SEARCH_LOGS,
+            payload: data
+         })   
+    } catch (error) {
+        dispatch({
+            type: LOGS_ERROR,
+            payload: error.response.data
+        })
+        
+    }
+}
+
 
 //Action to set the current log
 export const setCurrent = log => {

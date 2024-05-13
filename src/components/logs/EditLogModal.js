@@ -7,7 +7,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 const EditLogModal = ({updateLog, current}) => {
 
     const [message, setMessage] = useState('');
-    const [attention, setAttention] = useState('');
+    const [attention, setAttention] = useState(false);
     const [developer, setDeveloper] = useState('');
 
     useEffect(() => {
@@ -15,6 +15,10 @@ const EditLogModal = ({updateLog, current}) => {
             setMessage(current.message);
             setAttention(current.attention);
             setDeveloper(current.developer);
+        } else {
+            setMessage('');
+            setAttention(false);
+            setDeveloper('');
         }
     }, [current])
 
@@ -82,7 +86,7 @@ const EditLogModal = ({updateLog, current}) => {
             </div>
         </div>
         <div className="modal-footer">
-            <a href="" onClick={onsubmit}
+            <a href="#!" onClick={onsubmit}
                         className='modal-close waves-effect waves-blue btn-flat'
             >
                 Submit

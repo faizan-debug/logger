@@ -1,54 +1,84 @@
 {
   "logs": [
     {
-      "id": "d0ce",
-      "message": "Work on project JS",
-      "attention": "",
-      "developer": "Faizan Ali",
-      "date": "2024-05-12T11:32:35.368Z"
-    },
-    {
-      "id": "0b90",
-      "message": "Home page created",
-      "attention": true,
-      "developer": "Adil Altaf",
-      "date": "2024-05-12T13:45:19.064Z"
-    },
-    {
-      "id": "a551",
-      "message": "Cart page created by who",
+      "id": "34a2",
+      "message": "Page Created",
       "attention": true,
       "developer": "Faizan Ali",
-      "date": "2024-05-12T13:46:18.784Z"
+      "date": "2024-05-12T19:59:07.615Z"
     },
     {
-      "id": "49cc",
-      "message": "About page created",
+      "id": "85d9",
+      "message": "About Page Created",
+      "attention": true,
+      "developer": "Faizan Ali",
+      "date": "2024-05-12T19:59:21.851Z"
+    },
+    {
+      "id": "67d1",
+      "message": "Home Page added",
+      "attention": false,
+      "developer": "Faizan Ali",
+      "date": "2024-05-12T19:59:38.017Z"
+    },
+    {
+      "id": "da29",
+      "message": "Cart Page Created",
       "attention": true,
       "developer": "Adil Altaf",
-      "date": "2024-05-12T13:45:51.649Z"
+      "date": "2024-05-12T20:14:49.057Z"
     }
   ],
-  "Developer": [
+  "developers": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Faizan",
       "lastName": "Ali"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Adil",
       "lastName": "Altaf"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Imad",
       "lastName": "Wasim"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Kamran",
       "lastName": "Ali"
+    },
+    {
+      "id": 5,
+      "firstName": "Ali",
+      "lastName": "Imran"
+    },
+    {
+      "id": "e38b",
+      "firstName": "Ali",
+      "lastName": "Zeeshan"
+    },
+    {
+      "id": "6fe5",
+      "firstName": "SSD",
+      "lastName": "ASD"
+    },
+    {
+      "id": "00ca",
+      "firstName": "Zia",
+      "lastName": "khan"
+    },
+    {
+      "id": "e185",
+      "firstName": "ZAeshan",
+      "lastName": "Hanif"
+    },
+    {
+      "id": "3fc9",
+      "firstName": "zeeshan",
+      "lastName": "hanif"
     }
   ]
 }

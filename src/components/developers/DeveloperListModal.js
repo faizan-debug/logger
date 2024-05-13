@@ -15,7 +15,7 @@ const DeveloperListModal = () => {
 
     const getDevelopers = async () => {
         setLoading(true);
-        const res = await fetch('/Developer');
+        const res = await fetch('/developers');
         const data = await res.json();
         
 
