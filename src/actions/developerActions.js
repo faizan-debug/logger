@@ -58,7 +58,7 @@ export const deleteDeveloper = (id) => async dispatch => {
          //Set Loading to true
          setLoading();
          //Fetch from API
-         await fetch(`/Developer/${id}`, {
+         await fetch(`/developers/${id}`, {
             method: 'DELETE'
          })
          //Dispatch
@@ -69,7 +69,7 @@ export const deleteDeveloper = (id) => async dispatch => {
     } catch (error) {
         dispatch({
             type: DEVELOPER_ERROR,
-            payload: error.response.data
+            payload: error.response && error.response.data ? error.response.data : 'Unknown error'
         })
     }
 }

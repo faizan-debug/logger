@@ -2,13 +2,41 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { updateLog } from '../../actions/logActions';
+import { getDeveloper } from '../../actions/developerActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const EditLogModal = ({updateLog, current}) => {
+
+const EditLogModal = ({updateLog, current, getDeveloper}) => {
 
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState(false);
+    const [developerOptions, setDeveloperOptions] = useState([]);
     const [developer, setDeveloper] = useState('');
+
+    useEffect(() => {
+        console.log(developerOptions);
+    }, [developerOptions]);
+
+    useEffect(() => {
+        const fetchDeveloperData = async () => {
+            try {
+                // Fetch developer data
+                const res = await fetch('/developers')
+                const Developers = await res.json();
+                // Set developer options in state
+                setDeveloperOptions(Developers);
+                console.log(Developers);
+
+                console.log(developerOptions);
+            } catch (error) {
+                console.error('Error fetching developer data:', error);
+            }
+        };
+
+        // Call the fetchDeveloperData function
+        fetchDeveloperData();
+        
+    }, [getDeveloper]);
 
     useEffect(() => {
         if (current) {
@@ -43,6 +71,7 @@ const EditLogModal = ({updateLog, current}) => {
         }
     }
 
+
   return (
     <div id='edit-log-modal' className='modal'>
         <div className="modal-content">
@@ -58,15 +87,20 @@ const EditLogModal = ({updateLog, current}) => {
             </div>
             <div className="row">
                 <div className='input-field'>
-                    <select name="developer"
-                            value={developer}
-                            className='browser-default'
-                            onChange={e => setDeveloper(e.target.value)}
-                    >
-                        <option value="" disabled>Select Developer</option>
-                        <option value="Faizan Ali" >Faizan Ali</option>
-                        <option value="Adil Altaf" >Adil Altaf</option>
-                    </select>
+                <select
+                    name="developer"
+                    value={developer}
+                    className='browser-default'
+                    onChange={e => setDeveloper(e.target.value)}
+                >
+                    <option value="" disabled>Select Developer</option>
+                    {/* Map over developer options to create option elements */}
+                    {developerOptions.map(developer => (
+                        <option key={developer.id} value={developer.firstName + ' ' + developer.lastName}>
+                            {developer.firstName + ' ' + developer.lastName}
+                        </option>
+                    ))}
+                </select>
                 </div>
             </div>
             <div className="row">
@@ -99,10 +133,16 @@ const EditLogModal = ({updateLog, current}) => {
 EditLogModal.propTypes = {
     current: PropTypes.object,
     updateLog: PropTypes.func.isRequired,
+    getDeveloper: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     current: state.log.current
 })
 
-export default connect(mapStateToProps, {updateLog})(EditLogModal)
+const mapDispatchToProps = {
+    getDeveloper,
+    updateLog,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditLogModal)
