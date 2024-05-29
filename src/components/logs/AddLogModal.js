@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import { addLog } from '../../actions/logActions';
@@ -8,7 +8,30 @@ const AddLogModal = ( { addLog } ) => {
 
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState('');
+    const [developerOptions, setDeveloperOptions] = useState([]);
     const [developer, setDeveloper] = useState('');
+
+    useEffect(() => {
+        const fetchDeveloperData = async () => {
+            try {
+                // Fetch developer data
+                const res = await fetch('/developers')
+                const Developers = await res.json();
+                // Set developer options in state
+                setDeveloperOptions(Developers);
+                console.log(Developers);
+
+               // console.log(developerOptions);
+            } catch (error) {
+                console.error('Error fetching developer data:', error);
+            }
+        };
+
+        // Call the fetchDeveloperData function
+        fetchDeveloperData();
+        
+    }, []);
+
 
     const onsubmit = () => {
         if ( message === '' || developer === '') {
@@ -43,15 +66,20 @@ const AddLogModal = ( { addLog } ) => {
             </div>
             <div className="row">
                 <div className='input-field'>
-                    <select name="developer"
-                            value={developer}
-                            className='browser-default'
-                            onChange={e => setDeveloper(e.target.value)}
-                    >
-                        <option value="" disabled>Select Developer</option>
-                        <option value="Faizan Ali" >Faizan Ali</option>
-                        <option value="Adil Altaf" >Adil Altaf</option>
-                    </select>
+                <select
+                    name="developer"
+                    value={developer}
+                    className='browser-default'
+                    onChange={e => setDeveloper(e.target.value)}
+                >
+                    <option value="" disabled>Select Developer</option>
+                    {/* Map over developer options to create option elements */}
+                    {developerOptions.map(developer => (
+                        <option key={developer.id} value={developer.firstName + ' ' + developer.lastName}>
+                            {developer.firstName + ' ' + developer.lastName}
+                        </option>
+                    ))}
+                </select>
                 </div>
             </div>
             <div className="row">
@@ -71,7 +99,7 @@ const AddLogModal = ( { addLog } ) => {
             </div>
         </div>
         <div className="modal-footer">
-            <a href="" onClick={onsubmit}
+            <a href="#!" onClick={onsubmit}
                         className='modal-close waves-effect waves-blue btn-flat'
             >
                 Submit

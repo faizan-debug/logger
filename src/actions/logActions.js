@@ -78,25 +78,26 @@ export const deleteLog = (id) => async dispatch => {
 //Action to search logs
 export const searchLogs = (text) => async dispatch => {
     try {
-         //Set Loading to true
-         setLoading();
-         //Fetch from API
-         const res = await fetch(`/logs?q=${text}`)
-         const data = await res.json();
-         console.log(data);
-         //Dispatch
-         dispatch({
-            type: SEARCH_LOGS,
-            payload: data
-         })   
+      // Dispatch setLoading action
+      setLoading();
+  
+      // Fetch from API
+      const res = await fetch(`/logs?q=${text}`);
+     
+      const data = await res.json();
+      console.log(data);
+      // Dispatch the search result
+      dispatch({
+        type: SEARCH_LOGS,
+        payload: data
+      });
     } catch (error) {
-        dispatch({
-            type: LOGS_ERROR,
-            payload: error.response.data
-        })
-        
+      dispatch({
+        type: LOGS_ERROR,
+        payload: error.response ? error.response.data : 'Server Error'
+      });
     }
-}
+  };
 
 
 //Action to set the current log

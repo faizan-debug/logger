@@ -13,9 +13,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
     const [developerOptions, setDeveloperOptions] = useState([]);
     const [developer, setDeveloper] = useState('');
 
-    useEffect(() => {
-        console.log(developerOptions);
-    }, [developerOptions]);
+    
 
     useEffect(() => {
         const fetchDeveloperData = async () => {
@@ -27,7 +25,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
                 setDeveloperOptions(Developers);
                 console.log(Developers);
 
-                console.log(developerOptions);
+               // console.log(developerOptions);
             } catch (error) {
                 console.error('Error fetching developer data:', error);
             }
@@ -36,7 +34,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
         // Call the fetchDeveloperData function
         fetchDeveloperData();
         
-    }, [getDeveloper]);
+    }, []);
 
     useEffect(() => {
         if (current) {
