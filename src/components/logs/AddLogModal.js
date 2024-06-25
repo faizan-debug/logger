@@ -29,6 +29,7 @@ const AddLogModal = ( { addLog } ) => {
 
         // Call the fetchDeveloperData function
         fetchDeveloperData();
+        //eslint-disable-next-line
         
     }, []);
 

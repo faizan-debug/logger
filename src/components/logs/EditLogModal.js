@@ -33,6 +33,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
 
         // Call the fetchDeveloperData function
         fetchDeveloperData();
+        //eslint-disable-next-line
         
     }, []);
 
@@ -46,6 +47,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
             setAttention(false);
             setDeveloper('');
         }
+        //eslint-disable-next-line
     }, [current])
 
     const onsubmit = () => {
