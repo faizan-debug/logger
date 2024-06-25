@@ -23,7 +23,7 @@ const EditLogModal = ({updateLog, current, getDeveloper}) => {
                 const Developers = await res.json();
                 // Set developer options in state
                 setDeveloperOptions(Developers);
-                console.log(Developers);
+            
 
                // console.log(developerOptions);
             } catch (error) {

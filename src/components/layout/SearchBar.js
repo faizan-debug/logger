@@ -17,7 +17,7 @@ const SearchBar = ({ searchLogs }) => {
     if (searchText.trim() !== '') {
       // Call the action creator with the value
       searchLogs(searchText);
-      console.log(searchText);
+      
     } else {
       // Handle empty input if needed
     }
