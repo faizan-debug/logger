@@ -50,10 +50,12 @@ const AddDeveloperModal = ({addDeveloper}) => {
                 </div>
             </div>
             <div className="modal-footer">
-                <a href="" onClick={onsubmit}
+                <a href="#!" onClick={onsubmit}
+                // eslint-disable-next-line
                             className='modal-close waves-effect waves-blue btn-flat'
                 >
                     Submit
+                    
                 </a>
             </div>      
         </div>
